@@ -7,4 +7,4 @@ Run tweetapiaccess.py for historical search. Output files under SearchRest
 
 Run raw_tweet_dump.py for Twitter Stream API. Output under StreamingFiles.
 
-To Compile JSON files in CSV run  foo.py 
+To Compile JSON files in CSV run  ConpileTweets.py Output as Updated.csv 
