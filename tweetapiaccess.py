@@ -6,7 +6,7 @@ import ConfigParser
 class TwitterConnect():
 	def __init__(self):
 		config = ConfigParser.RawConfigParser()
-		config.read('C:\Users\Jubanjan\PycharmProject\Tweets\settings.cfg')
+		config.read('settings.cfg')
 		self.Consumer_Key=config.get('consumer','Consumer_Key')
 		self.Consumer_Secret=config.get('consumer','Consumer_Secret')
 		self.Access_Token=config.get('token','Access_Token')

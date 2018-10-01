@@ -21,15 +21,15 @@ class Compile():
 
     def Sort(self, JsonFileNames):
         print len(JsonFileNames)
-        id_str = []
+        id_str=00[]
         replycount=[]
         favorite_count=[]
-        retweet_count = []
+        retweet_count=[]
         timestamp_ms=[]
-        userfollowCount =[]
-        userfriendCount =[]
-        created_at =[]
-        tweettext = []
+        userfollowCount=[]
+        userfriendCount=[]
+        created_at=[]
+        tweettext=[]
         hashtagslist=[]
         mentionslist1=[]
         mentionslistid=[]
@@ -175,8 +175,8 @@ class Compile():
         print len(result[0]),len(result[1]),len(result[2])
         df1=pd.DataFrame({'hashtagslist':result[0],'mentionslistid':result[1],'mentionslist':result[2]})
         dataframe['hashtagslist']=df1['hashtagslist'].values
-        dataframe['mentionslistid'] = df1['mentionslistid'].values
-        dataframe['mentionslist'] = df1['mentionslist'].values
+        dataframe['mentionslistid']=df1['mentionslistid'].values
+        dataframe['mentionslist']=df1['mentionslist'].values
         return dataframe
     def filterhelper(self,colname,dataframe):
         newCol=[]

@@ -16,14 +16,14 @@ class MyStreamListener(StreamListener):
     #Sets up connection with OAuth
     def __init__(self):
         config = ConfigParser.RawConfigParser()
-        config.read('C:\Users\Jubanjan\PycharmProject\Tweets\settings.cfg')
+        config.read('settings.cfg')
         self.Consumer_Key=config.get('consumer','Consumer_Key')
         self.Consumer_Secret=config.get('consumer','Consumer_Secret')
         self.Access_Token=config.get('token','Access_Token')
         self.Access_Token_Secret=config.get('token','Access_Token_Secret')
-        auth = tweepy.OAuthHandler(self.Consumer_Key, self.Consumer_Secret)
+        auth=tweepy.OAuthHandler(self.Consumer_Key, self.Consumer_Secret)
         auth.set_access_token(self.Access_Token, self.Access_Token_Secret)
-        self.api = tweepy.API(auth)
+        self.api=tweepy.API(auth)
     
     def on_status(self, status):
         try:            
