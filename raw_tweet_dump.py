@@ -9,10 +9,6 @@ sys.setdefaultencoding('utf-8')
 
 class MyStreamListener(StreamListener):
     
-
-    
-    
-    
     """Sets up connection with OAuth"""
     def __init__(self):
         config = ConfigParser.RawConfigParser()
@@ -60,8 +56,9 @@ class MyStreamListener(StreamListener):
         
 
 
-"""Writes all tweets of a user to a file in json format"""
+
 def write_tweets(tweet):
+    """Writes all tweets of a user to a file in json format"""
     bundle_id = tweet['id_str']
     print bundle_id
     f = open('StreamingFiles/' + bundle_id + '.json', 'w')
@@ -73,8 +70,6 @@ def write_tweets(tweet):
         
 class twitterHelper:    
    
-    
-
     """Sets up connection with OAuth"""
     def __init__(self):
         self.myStreamListener = MyStreamListener()
@@ -89,11 +84,7 @@ class twitterHelper:
         # @NatlParkService => 36771809  
         user_ids = ['36771809']
         myStream.filter(follow=user_ids, async=True)
-        
-        
-        
-        
-        
+
 if __name__ == '__main__':
     t=twitterHelper()       
     t.getStreamTweets()
