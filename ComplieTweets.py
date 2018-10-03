@@ -21,7 +21,7 @@ class Compile():
 
     def Sort(self, JsonFileNames):
         print len(JsonFileNames)
-        id_str=00[]
+        id_str=[]
         replycount=[]
         favorite_count=[]
         retweet_count=[]

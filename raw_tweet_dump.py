@@ -13,7 +13,7 @@ class MyStreamListener(StreamListener):
     
     
     
-    #Sets up connection with OAuth
+    """Sets up connection with OAuth"""
     def __init__(self):
         config = ConfigParser.RawConfigParser()
         config.read('settings.cfg')
@@ -26,6 +26,7 @@ class MyStreamListener(StreamListener):
         self.api=tweepy.API(auth)
     
     def on_status(self, status):
+        """called when new status arrives"""
         try:            
             print 4
 	            
@@ -37,25 +38,29 @@ class MyStreamListener(StreamListener):
         
 
     def on_data(self, data):
+         """Called when raw data is received from connection."""
         all_data = json.loads(data)
         write_tweets(all_data)
 
 
     def on_error(self, status_code):
+        """Called when a non-200 status code is returned"""
         print datetime.datetime.now(),status_code
         if status_code == 420:
             print '420'
             return False
 
     def on_limit(self, status):
+        """Called when a limitation notice arrives"""
         print 'Limit threshold exceeded', status
 
     def on_timeout(self, status):
+        """Called when stream connection times out"""
         print 'Stream disconnected; continuing...'
         
 
 
-# Writes all tweets of a user to a file in json format
+"""Writes all tweets of a user to a file in json format"""
 def write_tweets(tweet):
     bundle_id = tweet['id_str']
     print bundle_id
@@ -70,7 +75,7 @@ class twitterHelper:
    
     
 
-    #Sets up connection with OAuth
+    """Sets up connection with OAuth"""
     def __init__(self):
         self.myStreamListener = MyStreamListener()
         auth = tweepy.OAuthHandler(self.myStreamListener.Consumer_Key,self.myStreamListener.Consumer_Secret)
@@ -80,7 +85,7 @@ class twitterHelper:
     def getStreamTweets(self):
         
         myStream = tweepy.Stream(auth=self.api.auth, listener=self.myStreamListener)
-        #give user ids to get the tweets tweeted by them
+        """give user ids to get the tweets tweeted by them"""
         # @NatlParkService => 36771809  
         user_ids = ['36771809']
         myStream.filter(follow=user_ids, async=True)
